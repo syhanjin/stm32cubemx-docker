@@ -13,26 +13,26 @@ USER root
 RUN apt-get update && apt-get install -y ca-certificates curl && update-ca-certificates
 
 # 使用国内镜像源
-RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
-    cat <<'EOF' > /etc/apt/sources.list
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.osa.moe/ubuntu/ noble main restricted universe multiverse
-# deb-src https://mirrors.osa.moe/ubuntu/ noble main restricted universe multiverse
-deb https://mirrors.osa.moe/ubuntu/ noble-updates main restricted universe multiverse
-# deb-src https://mirrors.osa.moe/ubuntu/ noble-updates main restricted universe multiverse
-deb https://mirrors.osa.moe/ubuntu/ noble-backports main restricted universe multiverse
-# deb-src https://mirrors.osa.moe/ubuntu/ noble-backports main restricted universe multiverse
-
-# deb https://mirrors.osa.moe/ubuntu/ noble-security main restricted universe multiverse
-# # deb-src https://mirrors.osa.moe/ubuntu/ noble-security main restricted universe multiverse
-
-deb http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
-# deb-src http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
-
-# 预发布软件源，不建议启用
-# deb https://mirrors.osa.moe/ubuntu/ noble-proposed main restricted universe multiverse
-# # deb-src https://mirrors.osa.moe/ubuntu/ noble-proposed main restricted universe multiverse
-EOF
+# RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
+#     cat <<'EOF' > /etc/apt/sources.list
+# # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+# deb https://mirrors.osa.moe/ubuntu/ noble main restricted universe multiverse
+# # deb-src https://mirrors.osa.moe/ubuntu/ noble main restricted universe multiverse
+# deb https://mirrors.osa.moe/ubuntu/ noble-updates main restricted universe multiverse
+# # deb-src https://mirrors.osa.moe/ubuntu/ noble-updates main restricted universe multiverse
+# deb https://mirrors.osa.moe/ubuntu/ noble-backports main restricted universe multiverse
+# # deb-src https://mirrors.osa.moe/ubuntu/ noble-backports main restricted universe multiverse
+#
+# # deb https://mirrors.osa.moe/ubuntu/ noble-security main restricted universe multiverse
+# # # deb-src https://mirrors.osa.moe/ubuntu/ noble-security main restricted universe multiverse
+#
+# deb http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
+# # deb-src http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
+#
+# # 预发布软件源，不建议启用
+# # deb https://mirrors.osa.moe/ubuntu/ noble-proposed main restricted universe multiverse
+# # # deb-src https://mirrors.osa.moe/ubuntu/ noble-proposed main restricted universe multiverse
+# EOF
 
 # 更新 apt 并安装基础工具
 RUN apt-get update && apt-get install -y \
